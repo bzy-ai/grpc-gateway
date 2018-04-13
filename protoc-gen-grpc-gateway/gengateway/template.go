@@ -366,6 +366,7 @@ func Register{{$svc.GetName}}HandlerClient(ctx context.Context, mux *runtime.Ser
 			}(ctx.Done(), cn.CloseNotify())
 		}
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		req.Header.Set("Grpc-Metadata-scope", "{{$b.Scope}}");
 		rctx, err := runtime.AnnotateContext(ctx, mux, req)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)

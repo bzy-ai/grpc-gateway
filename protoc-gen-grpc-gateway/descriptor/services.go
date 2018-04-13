@@ -124,6 +124,8 @@ func (r *Registry) newMethod(svc *Service, md *descriptor.MethodDescriptorProto,
 			HTTPMethod: httpMethod,
 		}
 
+		b.Scope = opts.Scope
+
 		for _, f := range tmpl.Fields {
 			param, err := r.newParam(meth, f)
 			if err != nil {

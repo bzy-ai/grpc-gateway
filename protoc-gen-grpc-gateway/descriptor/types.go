@@ -157,6 +157,8 @@ type Binding struct {
 	PathParams []Parameter
 	// Body describes parameters provided in HTTP request body.
 	Body *Body
+
+	Scope string
 }
 
 // ExplicitParams returns a list of explicitly bound parameters of "b",
